@@ -1,9 +1,6 @@
-function Button(props) {
-    const { title, changeCount } = props
-
-
+function Button({ title, handleClick, type }) {
     return (
-        <button  onClick={changeCount} className="mx-10 bg-blue-500 rounded-lg text-xl text-white px-4 py-2 shadow-md font-semibold">
+        <button type={type} onClick={event => handleClick(event)} className="border border-solid border-color-white rounded-lg text-sm text-white px-4 py-2 shadow-md font-semibold bg-indigo-500 hover:bg-indigo-700 ">
             {title}
         </button>
     )
