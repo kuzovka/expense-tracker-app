@@ -1,0 +1,10 @@
+.backGround {
+    background: linear-gradient(
+        0deg,
+        rgba(102, 114, 119, 0.41),
+        rgba(102, 114, 119, 0.41)
+    ),
+    url('../Header/bg-image.jpg');
+background-position: center;
+background-size: cover;
+}

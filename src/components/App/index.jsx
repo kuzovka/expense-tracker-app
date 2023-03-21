@@ -1,8 +1,7 @@
 
 import PaymentForm from "components/PaymentForm";
-import Statistics from "components/Statistics";
 import Payments from "components/Payments";
-
+import Header from "components/Header";
 import { useState } from "react";
 
 function App() {
@@ -53,20 +52,19 @@ function App() {
 }
 
   return (
+
     <div>
-      <div className="max-w-xl min-h-screen mx-auto bg-gray-50 rounded-md shadow-md my-7">
-        <h1 className="text-3xl text-center font-extrabold pt-8 text-gray-900">Учет расходов</h1>
+      <Header />
+      <div className="bg-neutral-200 flex justify-center items-center border-b border-solid border-gray-100 py-8">
         <PaymentForm addPayment={addPayment} />
-        <Statistics />
-        <div className="mt-10">
+      </div>
+      <div className="max-w-xl mx-auto my-7">
           <h2 className="text-center font-semibold text-xl mb-8">История операций:</h2>
           {payments.map((payment) => {
             return (
               <Payments key={payment.id} payment={payment} />
             )
           })}
-
-        </div>
       </div>
   </div>
   );

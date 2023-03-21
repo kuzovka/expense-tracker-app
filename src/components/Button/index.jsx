@@ -1,6 +1,6 @@
 function Button({ title, handleClick, type }) {
     return (
-        <button type={type} onClick={event => handleClick(event)} className="border border-solid border-color-white rounded-lg text-sm text-white px-4 py-2 shadow-md font-semibold bg-indigo-500 hover:bg-indigo-700 ">
+        <button type={type} onClick={event => handleClick(event)} className="w-26 h-12 rounded-md text-sm text-white px-4 uppercase font-medium bg-slate-900 hover:bg-slate-700 ease-linear">
             {title}
         </button>
     )
