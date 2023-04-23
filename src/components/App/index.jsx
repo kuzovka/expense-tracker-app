@@ -1,60 +1,64 @@
 
 import PaymentForm from "components/PaymentForm";
 import Payments from "components/Payments";
-import Header from "components/Header";
+import Statistics from "components/Statistics";
 import { useState } from "react";
+import { v4 as uuidv4} from "uuid";
+
 
 function App() {
 
   const [payments, setPayments] = useState([
     {
-      date: "23 января 2023",
+      date: new Date(2023, 3, 12),
       name: "Путешествия",
       cost: 17000,
-      id: 1
+      id: uuidv4()
     },
     {
-      date: "30 января 2023",
+      date: new Date(2023, 3, 1),
       name: "Одежда",
       cost: 7400,
-      id: 2
+      id: uuidv4()
     },
     {
-      date: "10 февраля 2023",
+      date: new Date(2023, 2, 23),
       name: "Развлечения",
       cost: 500,
-      id: 3
+      id: uuidv4()
     },
     {
-      date: "26 февраля 2023",
+      date: new Date(2023, 1, 15),
       name: "Развлечения",
       cost: 42000,
-      id: 4
+      id: uuidv4()
     },
     {
-      date: "01 марта 2023",
+      date: new Date(2023, 0, 18),
       name: "Образование",
       cost: 10000,
-      id: 5
+      id: uuidv4()
     },
     {
-      date: "01 марта 2023",
+      date: new Date(2023, 1, 10),
       name: "Еда",
       cost: 2320,
-      id: 6
+      id: uuidv4()
     }
-
   ])
 
   const addPayment = (payment) => {
-    const newPayments = [...payments, payment]
+    const newPayments = [payment, ...payments]
     setPayments(newPayments)
+
 }
+
+
 
   return (
 
     <div>
-      <Header />
+      <Statistics payments={payments}/>
       <div className="bg-neutral-200 flex justify-center items-center border-b border-solid border-gray-100 py-8">
         <PaymentForm addPayment={addPayment} />
       </div>

@@ -1,5 +1,6 @@
 import Button from "components/Button"
 import { useState } from "react"
+import { v4 as uuidv4} from "uuid"
 
 const names = ["Еда", "Аренда", "Одежда", "Образование", "Путешествия", "Развлечения"]
 
@@ -14,11 +15,10 @@ const PaymentForm = (props) => {
         event.preventDefault()
 
         const payment = {
-            // date: new Date(),
+            date: new Date(),
             cost: cost,
-            name: name
-
-
+            name: name,
+            id: uuidv4()
         }
 
         addPayment(payment)
@@ -32,7 +32,7 @@ const PaymentForm = (props) => {
 
                 <form className="flex justify-start items-center">
                         <input
-                            onChange={(event) => setCost(event.target.value)}
+                            onChange={(event) => setCost(event.target.value.replace(/\D/, ""))}
                             value={cost}
                             name="name"
                             type="text"
