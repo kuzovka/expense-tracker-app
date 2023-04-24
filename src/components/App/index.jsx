@@ -47,24 +47,27 @@ function App() {
     }
   ])
 
+  const [curretnCategory, setCurrentCategory] = useState()
+
   const addPayment = (payment) => {
     const newPayments = [payment, ...payments]
     setPayments(newPayments)
-
 }
+
+  const filtredPayments = curretnCategory === "Все расходы" || !curretnCategory  ? payments : payments.filter(p => p.name === curretnCategory)
 
 
 
   return (
 
     <div>
-      <Statistics payments={payments}/>
+      <Statistics payments={payments} setCurrentCategory={setCurrentCategory}/>
       <div className="bg-neutral-200 flex justify-center items-center border-b border-solid border-gray-100 py-8">
         <PaymentForm addPayment={addPayment} />
       </div>
       <div className="max-w-xl mx-auto my-7">
           <h2 className="text-center font-semibold text-xl mb-8">История операций:</h2>
-          {payments.map((payment) => {
+          {filtredPayments.map((payment) => {
             return (
               <Payments key={payment.id} payment={payment} />
             )

@@ -16,7 +16,7 @@ const PaymentForm = (props) => {
 
         const payment = {
             date: new Date(),
-            cost: cost,
+            cost: parseInt(cost),
             name: name,
             id: uuidv4()
         }
